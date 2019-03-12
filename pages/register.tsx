@@ -1,4 +1,5 @@
 import React from "react";
+import Router from "next/router";
 import { Formik, Field, FormikProps } from "formik";
 
 import Layout from "../components/Layout";
@@ -31,6 +32,8 @@ const Register: React.FunctionComponent = () => {
                     data
                   }
                 });
+
+                Router.push("/confirm-email");
               } catch (error) {
                 const errors = error.graphQLErrors[0].validationErrors;
 
