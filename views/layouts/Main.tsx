@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import Link from "next/link";
 import Head from "next/head";
 import { Layout } from "antd";
@@ -41,7 +41,7 @@ const MainLayout: React.FunctionComponent<Props> = ({
       </nav>
     </Header>
 
-    <Content>{children}</Content>
+    <Content className="l-container">{children}</Content>
 
     <Footer>
       <hr />

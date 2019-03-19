@@ -3,7 +3,7 @@ import Router from "next/router";
 import { Formik, Field, FormikProps } from "formik";
 
 import Layout from "../components/Layout";
-import { InputField } from "../components/fields/InputField";
+import { InputField } from "../views/ui/inputs/InputField";
 import { LoginComponent } from "../generated/apolloComponents";
 
 interface LoginFormValues {

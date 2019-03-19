@@ -1,6 +1,8 @@
 import React, { DetailedHTMLProps, InputHTMLAttributes } from "react";
 import { FieldProps } from "formik";
 
+import { Input } from "antd";
+
 type InputProps = DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
@@ -15,7 +17,7 @@ export const InputField = ({
 
   return (
     <div>
-      <input {...field} {...props} />
+      <Input {...field} {...props} />
 
       {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}
     </div>

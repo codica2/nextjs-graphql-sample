@@ -1,9 +1,10 @@
 import React from "react";
 import Router from "next/router";
 import { Formik, Field, FormikProps } from "formik";
+import Button from "antd/lib/button";
 
-import Layout from "../components/Layout";
-import { InputField } from "../components/fields/InputField";
+import Layout from "../views/layouts";
+import { InputField } from "../views/ui/inputs/InputField";
 import { RegisterComponent } from "../generated/apolloComponents";
 
 interface RegisterFormValues {
@@ -81,7 +82,7 @@ const Register: React.FunctionComponent = () => {
                     component={InputField}
                   />
 
-                  <button type="submit">Submit</button>
+                  <Button>Submit</Button>
                 </form>
               );
             }}

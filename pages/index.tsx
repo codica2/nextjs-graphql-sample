@@ -1,7 +1,10 @@
-import * as React from "react";
+import React from "react";
 import Link from "next/link";
+import { Button } from "antd";
 
-import Layout from "../components/Layout";
+import Layout from "../views/layouts";
+
+import { LoginComponent } from "../generated/apolloComponents";
 
 const IndexPage: React.FunctionComponent = () => {
   return (
@@ -13,9 +16,9 @@ const IndexPage: React.FunctionComponent = () => {
         </Link>
       </p>
 
-      {/* <LoginComponent>
+      <LoginComponent>
         {mutate => (
-          <button
+          <Button
             onClick={async () => {
               const response = await mutate({
                 variables: { email: "test@test.com", password: "123" }
@@ -23,9 +26,9 @@ const IndexPage: React.FunctionComponent = () => {
             }}
           >
             Login mutation
-          </button>
+          </Button>
         )}
-      </LoginComponent> */}
+      </LoginComponent>
     </Layout>
   );
 };
