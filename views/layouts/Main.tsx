@@ -33,6 +33,10 @@ const MainLayout: React.FunctionComponent<Props> = ({
         <Link href="/register">
           <a>Register</a>
         </Link>{" "}
+        |{" "}
+        <Link href="/hello">
+          <a>Hello</a>
+        </Link>
       </nav>
     </Header>
 

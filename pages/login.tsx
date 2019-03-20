@@ -1,6 +1,7 @@
 import React from "react";
 import Router from "next/router";
 import { Formik, Field, FormikProps } from "formik";
+import Button from "antd/lib/button";
 
 import Layout from "../views/layouts";
 import { InputField } from "../views/ui/inputs/InputField";
@@ -53,7 +54,7 @@ const Register: React.FunctionComponent = () => {
                     component={InputField}
                   />
 
-                  <button type="submit">Submit</button>
+                  <Button htmlType="submit">Submit</Button>
                 </form>
               );
             }}
