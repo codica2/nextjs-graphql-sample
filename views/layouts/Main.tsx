@@ -26,18 +26,13 @@ const MainLayout: React.FunctionComponent<Props> = ({
           <a>Home</a>
         </Link>{" "}
         |{" "}
-        <Link href="/list-class">
-          <a>List Example</a>
+        <Link href="/login">
+          <a>Login</a>
         </Link>{" "}
         |{" "}
-        <Link href="/list-fc">
-          <a>List Example (as Functional Component)</a>
+        <Link href="/register">
+          <a>Register</a>
         </Link>{" "}
-        |{" "}
-        <Link href="/about">
-          <a>About</a>
-        </Link>{" "}
-        |{" "}
       </nav>
     </Header>
 

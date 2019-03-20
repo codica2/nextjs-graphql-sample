@@ -2,7 +2,7 @@
   "name": "with-typescript",
   "version": "1.0.0",
   "scripts": {
-    "dev": "next",
+    "dev": "ts-node --project tsconfig.server.json server/index.ts",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",

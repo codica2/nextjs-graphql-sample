@@ -16,25 +16,18 @@ export interface RegisterInput {
   email: string;
 }
 
-export interface ProductInput {
-  name: string;
-}
-
-/** The `Upload` scalar type represents a file upload. */
-export type Upload = any;
-
 // ====================================================
 // Documents
 // ====================================================
 
-export type ConfirmUserVariables = {
+export type ConfirmEmailVariables = {
   token: string;
 };
 
-export type ConfirmUserMutation = {
+export type ConfirmEmailMutation = {
   __typename?: "Mutation";
 
-  confirmUser: boolean;
+  confirmEmail: boolean;
 };
 
 export type LoginVariables = {
@@ -95,47 +88,49 @@ import gql from "graphql-tag";
 // Components
 // ====================================================
 
-export const ConfirmUserDocument = gql`
-  mutation ConfirmUser($token: String!) {
-    confirmUser(token: $token)
+export const ConfirmEmailDocument = gql`
+  mutation ConfirmEmail($token: String!) {
+    confirmEmail(token: $token)
   }
 `;
-export class ConfirmUserComponent extends React.Component<
-  Partial<ReactApollo.MutationProps<ConfirmUserMutation, ConfirmUserVariables>>
+export class ConfirmEmailComponent extends React.Component<
+  Partial<
+    ReactApollo.MutationProps<ConfirmEmailMutation, ConfirmEmailVariables>
+  >
 > {
   render() {
     return (
-      <ReactApollo.Mutation<ConfirmUserMutation, ConfirmUserVariables>
-        mutation={ConfirmUserDocument}
+      <ReactApollo.Mutation<ConfirmEmailMutation, ConfirmEmailVariables>
+        mutation={ConfirmEmailDocument}
         {...(this as any)["props"] as any}
       />
     );
   }
 }
-export type ConfirmUserProps<TChildProps = any> = Partial<
-  ReactApollo.MutateProps<ConfirmUserMutation, ConfirmUserVariables>
+export type ConfirmEmailProps<TChildProps = any> = Partial<
+  ReactApollo.MutateProps<ConfirmEmailMutation, ConfirmEmailVariables>
 > &
   TChildProps;
-export type ConfirmUserMutationFn = ReactApollo.MutationFn<
-  ConfirmUserMutation,
-  ConfirmUserVariables
+export type ConfirmEmailMutationFn = ReactApollo.MutationFn<
+  ConfirmEmailMutation,
+  ConfirmEmailVariables
 >;
-export function ConfirmUserHOC<TProps, TChildProps = any>(
+export function ConfirmEmailHOC<TProps, TChildProps = any>(
   operationOptions:
     | ReactApollo.OperationOption<
         TProps,
-        ConfirmUserMutation,
-        ConfirmUserVariables,
-        ConfirmUserProps<TChildProps>
+        ConfirmEmailMutation,
+        ConfirmEmailVariables,
+        ConfirmEmailProps<TChildProps>
       >
     | undefined
 ) {
   return ReactApollo.graphql<
     TProps,
-    ConfirmUserMutation,
-    ConfirmUserVariables,
-    ConfirmUserProps<TChildProps>
-  >(ConfirmUserDocument, operationOptions);
+    ConfirmEmailMutation,
+    ConfirmEmailVariables,
+    ConfirmEmailProps<TChildProps>
+  >(ConfirmEmailDocument, operationOptions);
 }
 export const LoginDocument = gql`
   mutation Login($email: String!, $password: String!) {

@@ -1,12 +1,14 @@
 import * as React from "react";
 
 import redirect from "../lib/redirect";
-import {
-  ConfirmUserMutation,
-  ConfirmUserVariables
-} from "../generated/apolloComponents";
-import { confirmUserMutation } from "../graphql/user/mutations/confirmUser";
 import { MyContext } from "../interfaces/MyContext";
+
+import { confirmEmailMutation } from "../graphql/user/mutations/confirmEmail";
+
+import {
+  ConfirmEmailMutation,
+  ConfirmEmailVariables
+} from "../generated/apolloComponents";
 
 class Confirm extends React.Component {
   static async getInitialProps({
@@ -16,14 +18,15 @@ class Confirm extends React.Component {
   }: MyContext) {
     if (!token) return {};
 
-    await apolloClient.mutate<ConfirmUserMutation, ConfirmUserVariables>({
-      mutation: confirmUserMutation,
-      variables: {
-        token: token as string
-      }
-    });
-
-    redirect(ctx, "/login");
+    await apolloClient
+      .mutate<ConfirmEmailMutation, ConfirmEmailVariables>({
+        mutation: confirmEmailMutation,
+        variables: {
+          token: token as string
+        }
+      })
+      .then(() => redirect(ctx, "/login"))
+      .catch(error => console.error(error));
 
     return {};
   }

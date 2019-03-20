@@ -2,7 +2,7 @@ import React from "react";
 import Router from "next/router";
 import { Formik, Field, FormikProps } from "formik";
 
-import Layout from "../components/Layout";
+import Layout from "../views/layouts";
 import { InputField } from "../views/ui/inputs/InputField";
 import { LoginComponent } from "../generated/apolloComponents";
 

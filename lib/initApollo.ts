@@ -1,11 +1,13 @@
 import {
   ApolloClient,
+  ApolloLink,
   InMemoryCache,
   NormalizedCacheObject
 } from "apollo-boost";
 import { createHttpLink } from "apollo-link-http";
 import { setContext } from "apollo-link-context";
 import fetch from "isomorphic-unfetch";
+import { onError } from "apollo-link-error";
 
 let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
 
@@ -37,11 +39,23 @@ function create(initialState: any, { getToken }: Options) {
     };
   });
 
+  const errorLink = onError(({ graphQLErrors, networkError }) => {
+    if (graphQLErrors)
+      graphQLErrors.map(({ message, locations, path }) =>
+        console.log(
+          `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
+        )
+      );
+
+    if (networkError) console.log(`[Network error]: ${networkError}`);
+  });
+
   // Check out https://github.com/zeit/next.js/pull/4611 if you want to use the AWSAppSyncClient
   return new ApolloClient({
     connectToDevTools: isBrowser,
     ssrMode: !isBrowser, // Disables forceFetch on the server (so queries are only run once)
-    link: authLink.concat(httpLink),
+    // link: authLink.concat(httpLink),
+    link: ApolloLink.from([errorLink, authLink, httpLink]), // Composing Links
     cache: new InMemoryCache().restore(initialState || {})
   });
 }

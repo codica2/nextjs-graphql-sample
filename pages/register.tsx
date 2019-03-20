@@ -82,7 +82,7 @@ const Register: React.FunctionComponent = () => {
                     component={InputField}
                   />
 
-                  <Button>Submit</Button>
+                  <Button htmlType="submit">Submit</Button>
                 </form>
               );
             }}
