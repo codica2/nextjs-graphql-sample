@@ -37,6 +37,10 @@ const MainLayout: React.FunctionComponent<Props> = ({
         <Link href="/hello">
           <a>Hello</a>
         </Link>
+        |{" "}
+        <Link href="/forgot-password">
+          <a>Forgot password</a>
+        </Link>
       </nav>
     </Header>
 
