@@ -5,7 +5,8 @@ import Button from "antd/lib/button";
 
 import Layout from "../views/layouts";
 import { InputField } from "../views/ui/inputs/InputField";
-import { LoginComponent } from "../generated/apolloComponents";
+import { LoginComponent, MeQuery } from "../generated/apolloComponents";
+import { meQuery } from "../graphql/user/queries/me";
 
 interface LoginFormValues {
   email: string;
@@ -24,7 +25,19 @@ const Register: React.FunctionComponent = () => {
             }}
             onSubmit={async (data: LoginFormValues, { setErrors }) => {
               const response = await login({
-                variables: data
+                variables: data,
+                update: (cache, { data }) => {
+                  if (!data || !data.login) {
+                    return;
+                  }
+
+                  cache.writeQuery<MeQuery>({
+                    query: meQuery,
+                    data: {
+                      me: data.login
+                    }
+                  });
+                }
               });
 
               if (response && response.data && !response.data.login) {

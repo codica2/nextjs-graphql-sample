@@ -3,6 +3,8 @@ import Link from "next/link";
 import Head from "next/head";
 import { Layout } from "antd";
 
+import { MeComponent } from "../../generated/apolloComponents";
+
 const { Header, Footer, Content } = Layout;
 
 type Props = {
@@ -41,6 +43,20 @@ const MainLayout: React.FunctionComponent<Props> = ({
         <Link href="/forgot-password">
           <a>Forgot password</a>
         </Link>
+        |{" "}
+        <MeComponent>
+          {({ data, loading }) => {
+            if (!data || loading || !data.me) {
+              return null;
+            }
+
+            return (
+              <Link href="/logout">
+                <a>logout</a>
+              </Link>
+            );
+          }}
+        </MeComponent>
       </nav>
     </Header>
 
