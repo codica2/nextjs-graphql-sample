@@ -1,22 +1,20 @@
 import React from "react";
-import Link from "next/link";
-import { Button } from "antd";
+import { Typography } from "antd";
 
-import Layout from "../views/layouts";
+const { Title } = Typography;
 
-import { LoginComponent } from "../generated/apolloComponents";
+import Layout from "layouts/Intro";
 
 const IndexPage: React.FunctionComponent = () => {
   return (
     <Layout title="Home | Next.js + TypeScript Example">
-      <h1>Hello Next.js 👋</h1>
-      <p>
-        <Link href="/about">
-          <a>About</a>
-        </Link>
-      </p>
+      <Title>This is main Page.</Title>
+    </Layout>
+  );
+};
 
-      <LoginComponent>
+{
+  /* <LoginComponent>
         {mutate => (
           <Button
             onClick={async () => {
@@ -28,9 +26,7 @@ const IndexPage: React.FunctionComponent = () => {
             Login mutation
           </Button>
         )}
-      </LoginComponent>
-    </Layout>
-  );
-};
+      </LoginComponent> */
+}
 
 export default IndexPage;

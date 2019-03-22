@@ -3,7 +3,10 @@ import Link from "next/link";
 import Head from "next/head";
 import { Layout } from "antd";
 
-import { MeComponent } from "../../generated/apolloComponents";
+import { MeComponent } from "generated/apolloComponents";
+import Container from "styled/Container";
+import Box from "styled/Box";
+import Flex from "styled/Flex";
 
 const { Header, Footer, Content } = Layout;
 
@@ -11,7 +14,22 @@ type Props = {
   title?: string;
 };
 
-const MainLayout: React.FunctionComponent<Props> = ({
+const nav = [
+  {
+    label: "Login",
+    link: "/login"
+  },
+  {
+    label: "Register",
+    link: "/register"
+  },
+  {
+    label: "Forgot password",
+    link: "/forgot-password"
+  }
+];
+
+const IntroLayout: React.FunctionComponent<Props> = ({
   children,
   title = "This is the default title"
 }) => (
@@ -24,26 +42,12 @@ const MainLayout: React.FunctionComponent<Props> = ({
 
     <Header>
       <nav>
-        <Link href="/">
-          <a>Home</a>
-        </Link>{" "}
-        |{" "}
-        <Link href="/login">
-          <a>Login</a>
-        </Link>{" "}
-        |{" "}
-        <Link href="/register">
-          <a>Register</a>
-        </Link>{" "}
-        |{" "}
-        <Link href="/hello">
-          <a>Hello</a>
-        </Link>
-        |{" "}
-        <Link href="/forgot-password">
-          <a>Forgot password</a>
-        </Link>
-        |{" "}
+        {nav.map(({ label, link }) => (
+          <Link key={label} href={link}>
+            <a style={{ margin: "0 10px" }}>{label}</a>
+          </Link>
+        ))}
+
         <MeComponent>
           {({ data, loading }) => {
             if (!data || loading || !data.me) {
@@ -60,7 +64,15 @@ const MainLayout: React.FunctionComponent<Props> = ({
       </nav>
     </Header>
 
-    <Content className="l-container">{children}</Content>
+    <Content>
+      <Container p={3}>
+        <Flex justifyContent="center" alignItems="center">
+          <Box p={3} boxShadow="violet">
+            {children}
+          </Box>
+        </Flex>
+      </Container>
+    </Content>
 
     <Footer>
       <hr />
@@ -69,4 +81,4 @@ const MainLayout: React.FunctionComponent<Props> = ({
   </Layout>
 );
 
-export default MainLayout;
+export default IntroLayout;

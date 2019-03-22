@@ -1,10 +1,12 @@
 import React from "react";
 import Router from "next/router";
 import { Formik, Field, FormikProps } from "formik";
-import Button from "antd/lib/button";
+import { Row, Button } from "antd";
 
-import Layout from "../views/layouts";
-import { InputField } from "../views/ui/inputs/InputField";
+import Layout from "layouts/Intro";
+import InputField from "ui/inputs/InputField";
+import Title from "styled/Title";
+
 import { RegisterComponent } from "../generated/apolloComponents";
 
 interface RegisterFormValues {
@@ -17,8 +19,10 @@ interface RegisterFormValues {
 const Register: React.FunctionComponent = () => {
   return (
     <Layout title="Register page">
+      <Title textAlign="center">Register</Title>
+
       <RegisterComponent>
-        {register => (
+        {(register, { loading }) => (
           <Formik
             initialValues={{
               password: "",
@@ -82,7 +86,11 @@ const Register: React.FunctionComponent = () => {
                     component={InputField}
                   />
 
-                  <Button htmlType="submit">Submit</Button>
+                  <Row type="flex" justify="end">
+                    <Button htmlType="submit" loading={loading}>
+                      Submit
+                    </Button>
+                  </Row>
                 </form>
               );
             }}

@@ -7,6 +7,12 @@
         "libraryName": "antd",
         "style": true
       }
+    ],
+    [
+      "styled-components",
+      { "ssr": true, "displayName": true, "preprocess": false }
     ]
+
+    // ["module-alias", [{ "src": "./views/components", "expose": "Components" }]]
   ]
 }

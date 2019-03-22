@@ -1,11 +1,15 @@
 import React from "react";
 import Router from "next/router";
 import { Formik, Field, FormikProps } from "formik";
-import Button from "antd/lib/button";
+import { Row } from "antd";
 
-import Layout from "../views/layouts";
-import { InputField } from "../views/ui/inputs/InputField";
-import { LoginComponent, MeQuery } from "../generated/apolloComponents";
+import Layout from "layouts/Intro";
+import Button from "ui/Button";
+import InputField from "ui/inputs/InputField";
+import Title from "styled/Title";
+
+import { LoginComponent, MeQuery } from "generated/apolloComponents";
+
 import { meQuery } from "../graphql/user/queries/me";
 
 interface LoginFormValues {
@@ -16,8 +20,10 @@ interface LoginFormValues {
 const Register: React.FunctionComponent = () => {
   return (
     <Layout title="Login page">
+      <Title textAlign="center">Log in</Title>
+
       <LoginComponent>
-        {login => (
+        {(login, { loading }) => (
           <Formik
             initialValues={{
               email: "",
@@ -67,7 +73,11 @@ const Register: React.FunctionComponent = () => {
                     component={InputField}
                   />
 
-                  <Button htmlType="submit">Submit</Button>
+                  <Row type="flex" justify="end">
+                    <Button htmlType="submit" loading={loading}>
+                      Submit
+                    </Button>
+                  </Row>
                 </form>
               );
             }}
