@@ -1,9 +1,9 @@
 import React from "react";
-import { Typography } from "antd";
-
-const { Title } = Typography;
 
 import Layout from "layouts/Intro";
+import Title from "styled/Title";
+
+import { withAuth } from "../lib/withAuth";
 
 const IndexPage: React.FunctionComponent = () => {
   return (
@@ -29,4 +29,4 @@ const IndexPage: React.FunctionComponent = () => {
       </LoginComponent> */
 }
 
-export default IndexPage;
+export default withAuth(IndexPage);

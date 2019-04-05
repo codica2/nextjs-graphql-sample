@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import redirect from "../lib/redirect";
-import { MyContext } from "../interfaces/MyContext";
+import { NextContextWithApollo } from "../interfaces/NextContextWithApollo";
 
 import { confirmEmailMutation } from "../graphql/user/mutations/confirmEmail";
 
@@ -15,7 +15,7 @@ class Confirm extends React.Component {
     query: { token },
     apolloClient,
     ...ctx
-  }: MyContext) {
+  }: NextContextWithApollo) {
     if (!token) return {};
 
     await apolloClient
