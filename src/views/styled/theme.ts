@@ -1,21 +1,5 @@
 import { Theme } from "styled-system";
 
-// interface StyleClosetTheme {
-//   breakpoints: number[];
-//   fontSizes: number[];
-//   space: number[];
-//   fontWeights: number[];
-//   lineHeights: { [key: string]: number };
-//   letterSpacings: { [key: string]: string };
-//   fonts: { [key: string]: string };
-//   borders: (string | number)[];
-//   radii: (string | number)[];
-//   width: number[];
-//   heights: number[];
-//   maxWidths: number[];
-//   colors: { [key: string]: string | string[] };
-// }
-
 interface StyledTheme extends Theme {
   width: number[];
   colors: { [key: string]: any };

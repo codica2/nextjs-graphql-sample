@@ -6,18 +6,24 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import withApollo from "../lib/withApollo";
 
 import theme from "../src/views/styled/theme";
-import "../src/views/styles/index.less";
 
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: Roboto;
     line-height: 1;
   }
+
+  #__next {
+    display: flex;
+    height: 100%;
+  }
+
 `;
 
 class MyApp extends App<any> {
   render() {
     const { Component, pageProps, apolloClient } = this.props;
+
     return (
       <Container>
         <ApolloProvider client={apolloClient}>

@@ -11,7 +11,9 @@ import {
   FlexDirectionProps,
   AlignItemsProps,
   JustifyContentProps,
-  OrderProps
+  OrderProps,
+  justifySelf,
+  JustifySelfProps
 } from "styled-system";
 
 type PropsFlex = FlexWrapProps &
@@ -19,7 +21,7 @@ type PropsFlex = FlexWrapProps &
   JustifyContentProps &
   FlexDirectionProps;
 
-type PropsFlexItem = FlexProps & OrderProps;
+type PropsFlexItem = FlexProps & OrderProps & JustifySelfProps;
 
 const Flex = styled("div")<PropsFlex>`
   display: flex;
@@ -34,6 +36,7 @@ const Flex = styled("div")<PropsFlex>`
 const FlexItem = styled("div")<PropsFlexItem>`
   ${flex}
   ${order}
+  ${justifySelf}
 `;
 
 export { FlexItem };

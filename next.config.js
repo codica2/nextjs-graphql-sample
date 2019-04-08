@@ -9,8 +9,6 @@ const lessToJS = require('less-vars-to-js')
 
 // next.js configuration
 const nextConfig = {
-  // useFileSystemPublicRoutes: false,
-  // distDir: 'build',
   // distDir: "../build", // https://github.com/zeit/next.js/issues/4789
 
   webpack (config, options) {

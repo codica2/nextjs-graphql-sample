@@ -17,75 +17,73 @@ interface LoginFormValues {
   password: string;
 }
 
-const Register: React.FunctionComponent = () => {
-  return (
-    <Layout title="Login page">
-      <Title textAlign="center">Log in</Title>
+const Register: React.FC = () => (
+  <Layout title="Login page">
+    <Title textAlign="center">Log in</Title>
 
-      <LoginComponent>
-        {(login, { loading }) => (
-          <Formik
-            initialValues={{
-              email: "",
-              password: ""
-            }}
-            onSubmit={async (data: LoginFormValues, { setErrors }) => {
-              const response = await login({
-                variables: data,
-                update: (cache, { data }) => {
-                  if (!data || !data.login) {
-                    return;
-                  }
-
-                  cache.writeQuery<MeQuery>({
-                    query: meQuery,
-                    data: {
-                      me: data.login
-                    }
-                  });
+    <LoginComponent>
+      {(login, { loading }) => (
+        <Formik
+          initialValues={{
+            email: "",
+            password: ""
+          }}
+          onSubmit={async (data: LoginFormValues, { setErrors }) => {
+            const response = await login({
+              variables: data,
+              update: (cache, { data }) => {
+                if (!data || !data.login) {
+                  return;
                 }
+
+                cache.writeQuery<MeQuery>({
+                  query: meQuery,
+                  data: {
+                    me: data.login
+                  }
+                });
+              }
+            });
+
+            if (response && response.data && !response.data.login) {
+              setErrors({
+                email: "Invalid login"
               });
 
-              if (response && response.data && !response.data.login) {
-                setErrors({
-                  email: "Invalid login"
-                });
+              return;
+            }
 
-                return;
-              }
+            Router.push("/");
+          }}
+        >
+          {({ handleSubmit }: FormikProps<LoginFormValues>) => {
+            return (
+              <form onSubmit={handleSubmit}>
+                <Field
+                  name="email"
+                  placeholder="Email"
+                  component={InputField}
+                />
 
-              Router.push("/");
-            }}
-          >
-            {({ handleSubmit }: FormikProps<LoginFormValues>) => {
-              return (
-                <form onSubmit={handleSubmit}>
-                  <Field
-                    name="email"
-                    placeholder="Email"
-                    component={InputField}
-                  />
+                <Field
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                  component={InputField}
+                />
 
-                  <Field
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    component={InputField}
-                  />
-
-                  <Row type="flex" justify="end">
-                    <Button htmlType="submit" loading={loading}>
-                      Submit
-                    </Button>
-                  </Row>
-                </form>
-              );
-            }}
-          </Formik>
-        )}
-      </LoginComponent>
-    </Layout>
-  );
-};
+                <Row type="flex" justify="end">
+                  <Button htmlType="submit" loading={loading}>
+                    Submit
+                  </Button>
+                </Row>
+              </form>
+            );
+          }}
+        </Formik>
+      )}
+    </LoginComponent>
+  </Layout>
+);
 
 export default Register;

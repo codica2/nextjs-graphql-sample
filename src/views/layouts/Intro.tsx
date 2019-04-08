@@ -1,18 +1,14 @@
 import React from "react";
-import Link from "next/link";
 import Head from "next/head";
 import { Layout } from "antd";
 
-import { MeComponent } from "generated/apolloComponents";
+import Nav from "components/Nav";
+
 import Container from "styled/Container";
 import Box from "styled/Box";
 import Flex from "styled/Flex";
 
 const { Header, Footer, Content } = Layout;
-
-type Props = {
-  title?: string;
-};
 
 const nav = [
   {
@@ -29,7 +25,11 @@ const nav = [
   }
 ];
 
-const IntroLayout: React.FunctionComponent<Props> = ({
+type Props = {
+  title?: string;
+};
+
+const IntroLayout: React.FC<Props> = ({
   children,
   title = "This is the default title"
 }) => (
@@ -41,27 +41,7 @@ const IntroLayout: React.FunctionComponent<Props> = ({
     </Head>
 
     <Header>
-      <nav>
-        {nav.map(({ label, link }) => (
-          <Link key={label} href={link}>
-            <a style={{ margin: "0 10px" }}>{label}</a>
-          </Link>
-        ))}
-
-        <MeComponent>
-          {({ data, loading }) => {
-            if (!data || loading || !data.me) {
-              return null;
-            }
-
-            return (
-              <Link href="/logout">
-                <a>logout</a>
-              </Link>
-            );
-          }}
-        </MeComponent>
-      </nav>
+      <Nav items={nav} />
     </Header>
 
     <Content>

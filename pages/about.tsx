@@ -1,16 +1,18 @@
 import * as React from "react";
 import Link from "next/link";
-import Layout from "../components/Layout";
+import Typography from "antd/lib/typography";
+
+import Layout from "layouts/Main";
+import Title from "styled/Title";
 
 const AboutPage: React.FunctionComponent = () => (
   <Layout title="About | Next.js + TypeScript Example">
-    <h1>About</h1>
-    <p>This is the about page</p>
-    <p>
-      <Link href="/">
-        <a>Go home</a>
-      </Link>
-    </p>
+    <Title>About</Title>
+    <Typography.Paragraph strong>This is the about page</Typography.Paragraph>
+
+    <Link href="/">
+      <a>Go home</a>
+    </Link>
   </Layout>
 );
 

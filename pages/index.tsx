@@ -1,32 +1,16 @@
 import React from "react";
 
-import Layout from "layouts/Intro";
+import Layout from "layouts/Main";
 import Title from "styled/Title";
+import Typography from "antd/lib/typography";
 
 import { withAuth } from "../lib/withAuth";
 
-const IndexPage: React.FunctionComponent = () => {
-  return (
-    <Layout title="Home | Next.js + TypeScript Example">
-      <Title>This is main Page.</Title>
-    </Layout>
-  );
-};
-
-{
-  /* <LoginComponent>
-        {mutate => (
-          <Button
-            onClick={async () => {
-              const response = await mutate({
-                variables: { email: "test@test.com", password: "123" }
-              });
-            }}
-          >
-            Login mutation
-          </Button>
-        )}
-      </LoginComponent> */
-}
+const IndexPage: React.FC = () => (
+  <Layout title="Home | Next.js + TypeScript Example">
+    <Title>Home</Title>
+    <Typography.Paragraph strong>This is the home page</Typography.Paragraph>
+  </Layout>
+);
 
 export default withAuth(IndexPage);

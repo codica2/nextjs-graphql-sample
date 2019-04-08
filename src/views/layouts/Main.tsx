@@ -3,14 +3,14 @@ import Link from "next/link";
 import Head from "next/head";
 import { Layout } from "antd";
 
+import Nav from "components/Nav";
+
+import Container from "styled/Container";
+import Flex from "styled/Flex";
+
 import { MeComponent } from "generated/apolloComponents";
-import Container from "../styled/Container";
 
 const { Header, Footer, Content } = Layout;
-
-type Props = {
-  title?: string;
-};
 
 const nav = [
   {
@@ -18,24 +18,16 @@ const nav = [
     link: "/"
   },
   {
-    label: "Login",
-    link: "/login"
-  },
-  {
-    label: "Register",
-    link: "/register"
-  },
-  {
-    label: "hello",
-    link: "/hello"
-  },
-  {
-    label: "Forgot password",
-    link: "/forgot-password"
+    label: "About",
+    link: "/about"
   }
 ];
 
-const MainLayout: React.FunctionComponent<Props> = ({
+type Props = {
+  title?: string;
+};
+
+const MainLayout: React.FC<Props> = ({
   children,
   title = "This is the default title"
 }) => (
@@ -47,12 +39,8 @@ const MainLayout: React.FunctionComponent<Props> = ({
     </Head>
 
     <Header>
-      <nav>
-        {nav.map(({ label, link }) => (
-          <Link key={label} href={link}>
-            <a style={{ margin: "0 10px" }}>{label}</a>
-          </Link>
-        ))}
+      <Flex justifyContent="space-between">
+        <Nav items={nav} />
 
         <MeComponent>
           {({ data, loading }) => {
@@ -62,12 +50,12 @@ const MainLayout: React.FunctionComponent<Props> = ({
 
             return (
               <Link href="/logout">
-                <a>logout</a>
+                <a>Logout</a>
               </Link>
             );
           }}
         </MeComponent>
-      </nav>
+      </Flex>
     </Header>
 
     <Content>
