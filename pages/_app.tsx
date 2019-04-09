@@ -5,7 +5,7 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 import withApollo from "../lib/withApollo";
 
-import theme from "../src/views/styled/theme";
+import theme from "styled/theme";
 
 const GlobalStyle = createGlobalStyle`
   body {

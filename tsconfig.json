@@ -18,17 +18,13 @@
     "strictNullChecks": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
-    "baseUrl": "./src",
+    "baseUrl": "./views",
     "paths": {
       "generated/*": ["../generated/*"],
-      "layouts/*": ["views/layouts/*"],
-      "components/*": ["views/components/*"],
-      "ui/*": ["views/ui/*"],
-      "styled/*": ["views/styled/*"]
+      "layouts/*": ["layouts/*"],
+      "components/*": ["components/*"],
+      "ui/*": ["ui/*"],
+      "styled/*": ["styled/*"]
     }
-    // "esModuleInterop": true
-    // "declaration": true,
-    // "outDir": "ts"
-    // "@components": ["src/views/components"]
   }
 }
