@@ -20,11 +20,9 @@
     "noImplicitReturns": true,
     "baseUrl": "./views",
     "paths": {
-      "generated/*": ["../generated/*"],
-      "layouts/*": ["layouts/*"],
-      "components/*": ["components/*"],
-      "ui/*": ["ui/*"],
-      "styled/*": ["styled/*"]
+      "@generated/*": ["../generated/*"],
+      "@graphql/*": ["../graphql/*"],
+      "@views/*": ["./*"]
     }
   }
 }

@@ -1,7 +1,7 @@
-import React from "react";
-import Head from "next/head";
-import styled from "styled-components";
 import { Layout } from "antd";
+import Head from "next/head";
+import React from "react";
+import styled from "styled-components";
 
 const { Header, Content, Footer } = Layout;
 
@@ -13,14 +13,14 @@ const Container = styled(Content)`
   text-align: center;
 `;
 
-type Props = {
+interface IProps {
   title?: string;
   header?: React.ReactNode;
   children?: React.ReactNode;
   footer?: React.ReactNode;
-};
+}
 
-const PageTemplate: React.FunctionComponent<Props> = ({
+const PageTemplate: React.FunctionComponent<IProps> = ({
   title,
   header,
   children,

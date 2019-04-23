@@ -1,11 +1,11 @@
-import React from "react";
 import Link from "next/link";
+import React from "react";
 
-type Props = {
+interface IProps {
   items: Array<{ label: string; link: string }>;
-};
+}
 
-const Nav: React.FC<Props> = ({ items }) => (
+const Nav: React.FC<IProps> = ({ items }) => (
   <nav>
     {items.map(({ label, link }) => (
       <Link key={label} href={link}>

@@ -5,7 +5,7 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 import withApollo from "../lib/withApollo";
 
-import theme from "styled/theme";
+import theme from "@views/theme";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 class MyApp extends App<any> {
-  render() {
+  public render() {
     const { Component, pageProps, apolloClient } = this.props;
 
     return (

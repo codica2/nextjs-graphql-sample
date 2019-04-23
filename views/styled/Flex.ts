@@ -1,19 +1,19 @@
 import styled from "styled-components";
 import {
-  flex,
-  flexWrap,
-  flexDirection,
   alignItems,
-  justifyContent,
-  order,
-  FlexProps,
-  FlexWrapProps,
-  FlexDirectionProps,
   AlignItemsProps,
+  flex,
+  flexDirection,
+  FlexDirectionProps,
+  FlexProps,
+  flexWrap,
+  FlexWrapProps,
+  justifyContent,
   JustifyContentProps,
-  OrderProps,
   justifySelf,
-  JustifySelfProps
+  JustifySelfProps,
+  order,
+  OrderProps
 } from "styled-system";
 
 type PropsFlex = FlexWrapProps &

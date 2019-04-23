@@ -1,31 +1,13 @@
+import { Box } from "rebass";
 import styled from "styled-components";
-import {
-  space,
-  width,
-  color,
-  borders,
-  boxShadow,
-  WidthProps,
-  SpaceProps,
-  ColorProps,
-  BordersProps,
-  BoxShadowProps
-} from "styled-system";
+import { boxShadow, BoxShadowProps } from "styled-system";
 
-type Props = WidthProps &
-  SpaceProps &
-  ColorProps &
-  BordersProps &
-  BoxShadowProps;
+type Props = BoxShadowProps;
 
-export default styled("div")<Props>`
+export default styled(Box)<Props>`
   max-width: 500px;
   width: 100%;
   background-color: #ffffff;
   border-radius: 4px;
-  ${width}
-  ${space}
-  ${color}
-  ${borders}
   ${boxShadow}
 `;

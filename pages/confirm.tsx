@@ -1,9 +1,9 @@
 import * as React from "react";
 
-import redirect from "../lib/redirect";
 import { NextContextWithApollo } from "../interfaces/NextContextWithApollo";
+import redirect from "../lib/redirect";
 
-import { confirmEmailMutation } from "../graphql/user/mutations/confirmEmail";
+import { confirmEmailMutation } from "@graphql/user/mutations/confirmEmail";
 
 import {
   ConfirmEmailMutation,
@@ -11,12 +11,14 @@ import {
 } from "../generated/apolloComponents";
 
 class Confirm extends React.Component {
-  static async getInitialProps({
+  public static async getInitialProps({
     query: { token },
     apolloClient,
     ...ctx
   }: NextContextWithApollo) {
-    if (!token) return {};
+    if (!token) {
+      return {};
+    }
 
     await apolloClient
       .mutate<ConfirmEmailMutation, ConfirmEmailVariables>({
@@ -31,7 +33,7 @@ class Confirm extends React.Component {
     return {};
   }
 
-  render() {
+  public render() {
     return "something went wrong";
   }
 }

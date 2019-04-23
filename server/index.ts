@@ -9,7 +9,7 @@ const handler = routes.getRequestHandler(app);
 
 app.prepare().then(() => {
   createServer(handler).listen(port, (err: any) => {
-    if (err) throw err;
+    if (err) { throw err; }
     console.log(`> Ready on http://localhost:${port}`);
   });
 });

@@ -1,14 +1,14 @@
-import React from "react";
-import Router from "next/router";
-import { Formik, Field, FormikProps } from "formik";
 import Button from "antd/lib/button";
+import { Field, Formik, FormikProps } from "formik";
 import { NextContext } from "next";
+import Router from "next/router";
+import React from "react";
 
-import Layout from "../views/layouts";
-import { InputField } from "../views/ui/inputs/InputField";
-import { ChangePasswordComponent } from "../generated/apolloComponents";
+import { ChangePasswordComponent } from "@generated/apolloComponents";
+import Layout from "@views/layouts/Intro";
+import InputField from "@views/ui/inputs/InputField";
 
-interface RegisterFormValues {
+interface IRegisterFormValues {
   password: string;
 }
 
@@ -21,7 +21,7 @@ const ChangePassword = ({ token }: { token: string }) => {
             initialValues={{
               password: ""
             }}
-            onSubmit={(data: RegisterFormValues) =>
+            onSubmit={(data: IRegisterFormValues) =>
               forgotPassword({
                 variables: {
                   data: {
@@ -32,7 +32,7 @@ const ChangePassword = ({ token }: { token: string }) => {
               }).then(() => Router.push("/"))
             }
           >
-            {({ handleSubmit }: FormikProps<RegisterFormValues>) => {
+            {({ handleSubmit }: FormikProps<IRegisterFormValues>) => {
               return (
                 <form onSubmit={handleSubmit}>
                   <Field

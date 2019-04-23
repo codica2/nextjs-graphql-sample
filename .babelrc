@@ -11,8 +11,17 @@
     [
       "styled-components",
       { "ssr": true, "displayName": true, "preprocess": false }
+    ],
+    [
+      "module-resolver",
+      {
+        "root": ["."],
+        "alias": {
+          "@generated": "./generated",
+          "@graphql": "./graphql",
+          "@views": "./views"
+        }
+      }
     ]
-
-    // ["module-alias", [{ "src": "./views/components", "expose": "Components" }]]
   ]
 }

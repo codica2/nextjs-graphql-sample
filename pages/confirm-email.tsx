@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import Layout from "layouts/Intro";
+import Layout from "@views/layouts/Intro";
 
 export default () => {
   return (

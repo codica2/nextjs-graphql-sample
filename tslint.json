@@ -1,0 +1,19 @@
+{
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "rules": {
+    "jsx-no-lambda": false,
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "no-console": false
+    // "no-console": [true, "log", "error"]
+  },
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**/*.ts",
+      "generated/**/*.tsx",
+      "interfaces/**/*.ts",
+      "lib/**/*.{ts,tsx}",
+      "dist/**/*.ts"
+    ]
+  }
+}

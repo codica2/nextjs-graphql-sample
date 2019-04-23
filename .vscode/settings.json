@@ -1,0 +1,7 @@
+{
+  "path-intellisense.mappings": {
+    "@generated": "${workspaceRoot}/generated",
+    "@graphql": "${workspaceRoot}/graphql",
+    "@views": "${workspaceRoot}/views"
+  }
+}

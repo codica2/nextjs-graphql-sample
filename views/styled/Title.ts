@@ -1,12 +1,12 @@
-import styled from "styled-components";
 import { Typography } from "antd";
+import styled from "styled-components";
 import {
-  fontSize,
-  textAlign,
-  space,
   color,
-  SpaceProps,
   ColorProps,
+  fontSize,
+  space,
+  SpaceProps,
+  textAlign,
   TextAlignProps
 } from "styled-system";
 

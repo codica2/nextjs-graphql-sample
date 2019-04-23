@@ -1,15 +1,15 @@
-import React from "react";
+import { Button, Row } from "antd";
+import { Field, Formik, FormikProps } from "formik";
 import Router from "next/router";
-import { Formik, Field, FormikProps } from "formik";
-import { Row, Button } from "antd";
+import React from "react";
+import { Heading } from "rebass";
 
-import Layout from "layouts/Intro";
-import InputField from "ui/inputs/InputField";
-import Title from "styled/Title";
+import Layout from "@views/layouts/Intro";
+import InputField from "@views/ui/inputs/InputField";
 
-import { RegisterComponent } from "../generated/apolloComponents";
+import { RegisterComponent } from "@generated/apolloComponents";
 
-interface RegisterFormValues {
+interface IRegisterFormValues {
   password: string;
   firstName: string;
   lastName: string;
@@ -18,7 +18,9 @@ interface RegisterFormValues {
 
 const Register: React.FC = () => (
   <Layout title="Register page">
-    <Title textAlign="center">Register</Title>
+    <Heading textAlign="center" fontWeight="bold" pb={20}>
+      Register
+    </Heading>
 
     <RegisterComponent>
       {(register, { loading }) => (
@@ -29,7 +31,7 @@ const Register: React.FC = () => (
             lastName: "",
             email: ""
           }}
-          onSubmit={async (data: RegisterFormValues, { setErrors }) => {
+          onSubmit={async (data: IRegisterFormValues, { setErrors }) => {
             try {
               await register({
                 variables: {
@@ -54,7 +56,7 @@ const Register: React.FC = () => (
             }
           }}
         >
-          {({ handleSubmit }: FormikProps<RegisterFormValues>) => {
+          {({ handleSubmit }: FormikProps<IRegisterFormValues>) => {
             return (
               <form onSubmit={handleSubmit}>
                 <Field

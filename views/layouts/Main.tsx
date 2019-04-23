@@ -1,7 +1,7 @@
-import React from "react";
-import Link from "next/link";
-import Head from "next/head";
 import { Layout } from "antd";
+import Head from "next/head";
+import Link from "next/link";
+import React from "react";
 
 import Nav from "components/Nav";
 
@@ -23,11 +23,11 @@ const nav = [
   }
 ];
 
-type Props = {
+interface IProps {
   title?: string;
-};
+}
 
-const MainLayout: React.FC<Props> = ({
+const MainLayout: React.FC<IProps> = ({
   children,
   title = "This is the default title"
 }) => (

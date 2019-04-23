@@ -27,17 +27,17 @@ export type Upload = any;
 // Documents
 // ====================================================
 
-export type ChangePasswordVariables = {
+export interface ChangePasswordVariables {
   data: ChangePasswordInput;
-};
+}
 
-export type ChangePasswordMutation = {
+export interface ChangePasswordMutation {
   __typename?: "Mutation";
 
   changePassword: Maybe<ChangePasswordChangePassword>;
-};
+}
 
-export type ChangePasswordChangePassword = {
+export interface ChangePasswordChangePassword {
   __typename?: "User";
 
   id: string;
@@ -49,40 +49,40 @@ export type ChangePasswordChangePassword = {
   email: string;
 
   name: string;
-};
+}
 
-export type ConfirmEmailVariables = {
+export interface ConfirmEmailVariables {
   token: string;
-};
+}
 
-export type ConfirmEmailMutation = {
+export interface ConfirmEmailMutation {
   __typename?: "Mutation";
 
   confirmEmail: boolean;
-};
+}
 
-export type ForgotPasswordVariables = {
+export interface ForgotPasswordVariables {
   email: string;
-};
+}
 
-export type ForgotPasswordMutation = {
+export interface ForgotPasswordMutation {
   __typename?: "Mutation";
 
   forgotPassword: boolean;
-};
+}
 
-export type LoginVariables = {
+export interface LoginVariables {
   email: string;
   password: string;
-};
+}
 
-export type LoginMutation = {
+export interface LoginMutation {
   __typename?: "Mutation";
 
   login: Maybe<LoginLogin>;
-};
+}
 
-export type LoginLogin = {
+export interface LoginLogin {
   __typename?: "User";
 
   id: string;
@@ -94,27 +94,27 @@ export type LoginLogin = {
   email: string;
 
   name: string;
-};
+}
 
-export type LogoutVariables = {};
+export interface LogoutVariables {}
 
-export type LogoutMutation = {
+export interface LogoutMutation {
   __typename?: "Mutation";
 
   logout: boolean;
-};
+}
 
-export type RegisterVariables = {
+export interface RegisterVariables {
   data: RegisterInput;
-};
+}
 
-export type RegisterMutation = {
+export interface RegisterMutation {
   __typename?: "Mutation";
 
   register: RegisterRegister;
-};
+}
 
-export type RegisterRegister = {
+export interface RegisterRegister {
   __typename?: "User";
 
   id: string;
@@ -126,25 +126,25 @@ export type RegisterRegister = {
   email: string;
 
   name: string;
-};
+}
 
-export type HelloVariables = {};
+export interface HelloVariables {}
 
-export type HelloQuery = {
+export interface HelloQuery {
   __typename?: "Query";
 
   hello: string;
-};
+}
 
-export type MeVariables = {};
+export interface MeVariables {}
 
-export type MeQuery = {
+export interface MeQuery {
   __typename?: "Query";
 
   me: Maybe<MeMe>;
-};
+}
 
-export type MeMe = {
+export interface MeMe {
   __typename?: "User";
 
   id: string;
@@ -156,10 +156,10 @@ export type MeMe = {
   email: string;
 
   name: string;
-};
+}
 
-import * as ReactApollo from "react-apollo";
 import * as React from "react";
+import * as ReactApollo from "react-apollo";
 
 import gql from "graphql-tag";
 
@@ -183,11 +183,11 @@ export class ChangePasswordComponent extends React.Component<
     ReactApollo.MutationProps<ChangePasswordMutation, ChangePasswordVariables>
   >
 > {
-  render() {
+  public render() {
     return (
       <ReactApollo.Mutation<ChangePasswordMutation, ChangePasswordVariables>
         mutation={ChangePasswordDocument}
-        {...(this as any)["props"] as any}
+        {...(this as any).props as any}
       />
     );
   }
@@ -227,11 +227,11 @@ export class ConfirmEmailComponent extends React.Component<
     ReactApollo.MutationProps<ConfirmEmailMutation, ConfirmEmailVariables>
   >
 > {
-  render() {
+  public render() {
     return (
       <ReactApollo.Mutation<ConfirmEmailMutation, ConfirmEmailVariables>
         mutation={ConfirmEmailDocument}
-        {...(this as any)["props"] as any}
+        {...(this as any).props as any}
       />
     );
   }
@@ -271,11 +271,11 @@ export class ForgotPasswordComponent extends React.Component<
     ReactApollo.MutationProps<ForgotPasswordMutation, ForgotPasswordVariables>
   >
 > {
-  render() {
+  public render() {
     return (
       <ReactApollo.Mutation<ForgotPasswordMutation, ForgotPasswordVariables>
         mutation={ForgotPasswordDocument}
-        {...(this as any)["props"] as any}
+        {...(this as any).props as any}
       />
     );
   }
@@ -319,11 +319,11 @@ export const LoginDocument = gql`
 export class LoginComponent extends React.Component<
   Partial<ReactApollo.MutationProps<LoginMutation, LoginVariables>>
 > {
-  render() {
+  public render() {
     return (
       <ReactApollo.Mutation<LoginMutation, LoginVariables>
         mutation={LoginDocument}
-        {...(this as any)["props"] as any}
+        {...(this as any).props as any}
       />
     );
   }
@@ -361,11 +361,11 @@ export const LogoutDocument = gql`
 export class LogoutComponent extends React.Component<
   Partial<ReactApollo.MutationProps<LogoutMutation, LogoutVariables>>
 > {
-  render() {
+  public render() {
     return (
       <ReactApollo.Mutation<LogoutMutation, LogoutVariables>
         mutation={LogoutDocument}
-        {...(this as any)["props"] as any}
+        {...(this as any).props as any}
       />
     );
   }
@@ -409,11 +409,11 @@ export const RegisterDocument = gql`
 export class RegisterComponent extends React.Component<
   Partial<ReactApollo.MutationProps<RegisterMutation, RegisterVariables>>
 > {
-  render() {
+  public render() {
     return (
       <ReactApollo.Mutation<RegisterMutation, RegisterVariables>
         mutation={RegisterDocument}
-        {...(this as any)["props"] as any}
+        {...(this as any).props as any}
       />
     );
   }
@@ -451,11 +451,11 @@ export const HelloDocument = gql`
 export class HelloComponent extends React.Component<
   Partial<ReactApollo.QueryProps<HelloQuery, HelloVariables>>
 > {
-  render() {
+  public render() {
     return (
       <ReactApollo.Query<HelloQuery, HelloVariables>
         query={HelloDocument}
-        {...(this as any)["props"] as any}
+        {...(this as any).props as any}
       />
     );
   }
@@ -495,11 +495,11 @@ export const MeDocument = gql`
 export class MeComponent extends React.Component<
   Partial<ReactApollo.QueryProps<MeQuery, MeVariables>>
 > {
-  render() {
+  public render() {
     return (
       <ReactApollo.Query<MeQuery, MeVariables>
         query={MeDocument}
-        {...(this as any)["props"] as any}
+        {...(this as any).props as any}
       />
     );
   }

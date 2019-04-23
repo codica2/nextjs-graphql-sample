@@ -1,10 +1,10 @@
-import React from "react";
-import cookie from "cookie";
-import PropTypes from "prop-types";
-import { getDataFromTree } from "react-apollo";
-import Head from "next/head";
-import { NextAppContext } from "next/app";
 import { ApolloClient, NormalizedCacheObject } from "apollo-boost";
+import cookie from "cookie";
+import { NextAppContext } from "next/app";
+import Head from "next/head";
+import PropTypes from "prop-types";
+import React from "react";
+import { getDataFromTree } from "react-apollo";
 
 import initApollo, { isBrowser } from "./initApollo";
 import redirect from "./redirect";
@@ -18,12 +18,12 @@ function parseCookies(req?: any, options = {}) {
 
 export default (App: any) => {
   return class WithData extends React.Component {
-    static displayName = `WithData(${App.displayName})`;
-    static propTypes = {
+    public static displayName = `WithData(${App.displayName})`;
+    public static propTypes = {
       apolloState: PropTypes.object.isRequired
     };
 
-    static async getInitialProps(ctx: NextAppContext) {
+    public static async getInitialProps(ctx: NextAppContext) {
       const {
         Component,
         router,
@@ -87,7 +87,7 @@ export default (App: any) => {
       };
     }
 
-    apolloClient: ApolloClient<NormalizedCacheObject>;
+    public apolloClient: ApolloClient<NormalizedCacheObject>;
 
     constructor(props: any) {
       super(props);
@@ -100,7 +100,7 @@ export default (App: any) => {
       });
     }
 
-    render() {
+    public render() {
       return <App {...this.props} apolloClient={this.apolloClient} />;
     }
   };

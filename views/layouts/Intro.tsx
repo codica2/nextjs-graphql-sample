@@ -1,12 +1,12 @@
-import React from "react";
-import Head from "next/head";
 import { Layout } from "antd";
+import Head from "next/head";
+import React from "react";
 
-import Nav from "components/Nav";
+import Nav from "@views/components/Nav";
 
-import Container from "styled/Container";
-import Box from "styled/Box";
-import Flex from "styled/Flex";
+import Box from "@views/styled/Box";
+import Container from "@views/styled/Container";
+import Flex from "@views/styled/Flex";
 
 const { Header, Footer, Content } = Layout;
 
@@ -25,11 +25,11 @@ const nav = [
   }
 ];
 
-type Props = {
+interface IProps {
   title?: string;
-};
+}
 
-const IntroLayout: React.FC<Props> = ({
+const IntroLayout: React.FC<IProps> = ({
   children,
   title = "This is the default title"
 }) => (

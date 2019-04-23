@@ -1,8 +1,8 @@
 import * as React from "react";
 
+import { MeQuery } from "generated/apolloComponents";
 import { NextContextWithApollo } from "../interfaces/NextContextWithApollo";
 import redirect from "./redirect";
-import { MeQuery } from "generated/apolloComponents";
 
 import { meQuery } from "../graphql/user/queries/me";
 
@@ -10,7 +10,7 @@ export const withAuth = <T extends object>(
   C: React.ComponentClass<T> | React.FC
 ) => {
   return class AuthComponent extends React.Component<T> {
-    static async getInitialProps({
+    public static async getInitialProps({
       apolloClient,
       ...ctx
     }: NextContextWithApollo) {
@@ -28,7 +28,7 @@ export const withAuth = <T extends object>(
       };
     }
 
-    render() {
+    public render() {
       return <C {...this.props} />;
     }
   };

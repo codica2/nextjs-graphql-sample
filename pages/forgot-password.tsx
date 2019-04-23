@@ -1,15 +1,15 @@
-import React from "react";
+import { Button, Row } from "antd";
+import { Field, Formik, FormikProps } from "formik";
 import Router from "next/router";
-import { Formik, Field, FormikProps } from "formik";
-import { Row, Button } from "antd";
+import React from "react";
 
-import Layout from "layouts/Intro";
-import InputField from "ui/inputs/InputField";
-import Title from "styled/Title";
+import Layout from "@views/layouts/Intro";
+import Title from "@views/styled/Title";
+import InputField from "@views/ui/inputs/InputField";
 
-import { ForgotPasswordComponent } from "../generated/apolloComponents";
+import { ForgotPasswordComponent } from "@generated/apolloComponents";
 
-interface RegisterFormValues {
+interface IRegisterFormValues {
   email: string;
 }
 
@@ -23,7 +23,7 @@ const ForgotPassword: React.FC = () => (
           initialValues={{
             email: ""
           }}
-          onSubmit={async (data: RegisterFormValues) => {
+          onSubmit={async (data: IRegisterFormValues) => {
             await forgotPassword({
               variables: data
             });
@@ -31,7 +31,7 @@ const ForgotPassword: React.FC = () => (
             Router.push("/confirm-email");
           }}
         >
-          {({ handleSubmit }: FormikProps<RegisterFormValues>) => {
+          {({ handleSubmit }: FormikProps<IRegisterFormValues>) => {
             return (
               <form onSubmit={handleSubmit}>
                 <Field

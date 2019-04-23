@@ -13,11 +13,11 @@ const nextConfig = {
 
   webpack (config, options) {
     // webpack aliases
-    config.resolve.alias['generated'] = path.join(__dirname, '/generated')
-    config.resolve.alias['layouts'] = path.join(__dirname, 'views/layouts')
-    config.resolve.alias['components'] = path.join(__dirname, 'views/components')
-    config.resolve.alias['ui'] = path.join(__dirname, 'views/ui')
-    config.resolve.alias['styled'] = path.join(__dirname, 'views/styled')
+    // config.resolve.alias['generated'] = path.join(__dirname, '/generated')
+    // config.resolve.alias['layouts'] = path.join(__dirname, 'views/layouts')
+    // config.resolve.alias['components'] = path.join(__dirname, 'views/components')
+    // config.resolve.alias['ui'] = path.join(__dirname, 'views/ui')
+    // config.resolve.alias['styled'] = path.join(__dirname, 'views/styled')
 
     return config
   }

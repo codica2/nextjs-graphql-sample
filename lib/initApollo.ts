@@ -1,14 +1,14 @@
-import fetch from "isomorphic-unfetch";
-import Router from "next/router";
 import {
   ApolloClient,
   ApolloLink,
   InMemoryCache,
   NormalizedCacheObject
 } from "apollo-boost";
-import { createHttpLink } from "apollo-link-http";
 import { setContext } from "apollo-link-context";
 import { onError } from "apollo-link-error";
+import { createHttpLink } from "apollo-link-http";
+import fetch from "isomorphic-unfetch";
+import Router from "next/router";
 
 let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
 
@@ -41,7 +41,7 @@ function create(initialState: any, { getToken }: Options) {
   });
 
   const errorLink = onError(({ graphQLErrors, networkError }) => {
-    if (graphQLErrors)
+    if (graphQLErrors) {
       graphQLErrors.map(({ message, locations, path }) => {
         console.log(
           `[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`
@@ -51,8 +51,9 @@ function create(initialState: any, { getToken }: Options) {
           Router.replace("/login");
         }
       });
+    }
 
-    if (networkError) console.log(`[Network error]: ${networkError}`);
+    if (networkError) { console.log(`[Network error]: ${networkError}`); }
   });
 
   // Check out https://github.com/zeit/next.js/pull/4611 if you want to use the AWSAppSyncClient

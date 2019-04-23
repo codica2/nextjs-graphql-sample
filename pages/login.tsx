@@ -1,25 +1,27 @@
 import React from "react";
 import Router from "next/router";
-import { Formik, Field, FormikProps } from "formik";
 import { Row } from "antd";
+import { Field, Formik, FormikProps } from "formik";
+import { Heading } from "rebass";
 
-import Layout from "layouts/Intro";
-import Button from "ui/Button";
-import InputField from "ui/inputs/InputField";
-import Title from "styled/Title";
+import Layout from "@views/layouts/Intro";
+import Button from "@views/ui/Button";
+import InputField from "@views/ui/inputs/InputField";
 
-import { LoginComponent, MeQuery } from "generated/apolloComponents";
+import { LoginComponent, MeQuery } from "@generated/apolloComponents";
 
-import { meQuery } from "../graphql/user/queries/me";
+import { meQuery } from "@graphql/user/queries/me";
 
-interface LoginFormValues {
+interface ILoginFormValues {
   email: string;
   password: string;
 }
 
 const Register: React.FC = () => (
   <Layout title="Login page">
-    <Title textAlign="center">Log in</Title>
+    <Heading textAlign="center" fontWeight="bold" pb={20}>
+      Log in
+    </Heading>
 
     <LoginComponent>
       {(login, { loading }) => (
@@ -28,9 +30,9 @@ const Register: React.FC = () => (
             email: "",
             password: ""
           }}
-          onSubmit={async (data: LoginFormValues, { setErrors }) => {
+          onSubmit={async (values: ILoginFormValues, { setErrors }) => {
             const response = await login({
-              variables: data,
+              variables: values,
               update: (cache, { data }) => {
                 if (!data || !data.login) {
                   return;
@@ -56,7 +58,7 @@ const Register: React.FC = () => (
             Router.push("/");
           }}
         >
-          {({ handleSubmit }: FormikProps<LoginFormValues>) => {
+          {({ handleSubmit }: FormikProps<ILoginFormValues>) => {
             return (
               <form onSubmit={handleSubmit}>
                 <Field
