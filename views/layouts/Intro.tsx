@@ -1,14 +1,10 @@
-import { Layout } from "antd";
-import Head from "next/head";
 import React from "react";
+import Head from "next/head";
 
-import Nav from "@views/components/Nav";
+import Header from "@views/components/Header";
+import Footer from "@views/components/Footer";
 
-import Box from "@views/styled/Box";
-import Container from "@views/styled/Container";
-import Flex from "@views/styled/Flex";
-
-const { Header, Footer, Content } = Layout;
+import { Grid, Container, Flex, Box } from "@views/styled";
 
 const nav = [
   {
@@ -29,36 +25,30 @@ interface IProps {
   title?: string;
 }
 
-const IntroLayout: React.FC<IProps> = ({
-  children,
-  title = "This is the default title"
-}) => (
-  <Layout>
+const IntroLayout: React.FC<IProps> = ({ children, title }) => (
+  <Grid width="100%" gridTemplateRows="auto 1fr auto">
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
 
-    <Header>
-      <Nav items={nav} />
-    </Header>
+    <Header items={nav} />
 
-    <Content>
-      <Container p={3}>
-        <Flex justifyContent="center" alignItems="center">
-          <Box p={3} boxShadow="violet">
-            {children}
-          </Box>
-        </Flex>
-      </Container>
-    </Content>
+    <Container as="main" p={3}>
+      <Flex height="100%" justifyContent="center" alignItems="center">
+        <Box p={3} boxShadow="violet" width="500px">
+          {children}
+        </Box>
+      </Flex>
+    </Container>
 
-    <Footer>
-      <hr />
-      <span>I'm here to stay (Footer)</span>
-    </Footer>
-  </Layout>
+    <Footer />
+  </Grid>
 );
+
+IntroLayout.defaultProps = {
+  title: "This is the default title"
+};
 
 export default IntroLayout;

@@ -4,8 +4,8 @@ import Router from "next/router";
 import React from "react";
 
 import Layout from "@views/layouts/Intro";
-import Title from "@views/styled/Title";
 import InputField from "@views/ui/inputs/InputField";
+import { Heading } from "@views/styled";
 
 import { ForgotPasswordComponent } from "@generated/apolloComponents";
 
@@ -15,7 +15,7 @@ interface IRegisterFormValues {
 
 const ForgotPassword: React.FC = () => (
   <Layout title="Forgot password page">
-    <Title textAlign="center">Forgot Password</Title>
+    <Heading textAlign="center">Forgot Password</Heading>
 
     <ForgotPasswordComponent>
       {(forgotPassword, { loading }) => (

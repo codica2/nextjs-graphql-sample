@@ -1,11 +1,20 @@
-import styled from "styled-components";
-import { space, SpaceProps } from "styled-system";
+import { ComponentType } from "react";
+import styled, { StyledComponent } from "styled-components";
 
-type Props = SpaceProps;
+import common, { commonProps } from "./types/common";
+import { flexItem, flexItemProps } from "./types/flex";
 
-export default styled("div")<Props>`
-  max-width: 1280px;
-  margin: 0 auto;
-  height: 100%;
-  ${space}
-`;
+type Props = commonProps & flexItemProps;
+
+const Container: StyledComponent<Props> = styled("div")(
+  {
+    minHeight: 0
+  },
+
+  common,
+  flexItem
+);
+
+Container.displayName = "Container";
+
+export default Container;

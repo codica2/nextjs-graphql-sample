@@ -101,7 +101,7 @@ const InputField = ({
     <StyledInput>
       <input {...field} {...props} />
 
-      <span class="focus-border">
+      <span className="focus-border">
         <i />
       </span>
 

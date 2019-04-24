@@ -1,44 +1,17 @@
-import styled from "styled-components";
-import {
-  alignItems,
-  AlignItemsProps,
-  flex,
-  flexDirection,
-  FlexDirectionProps,
-  FlexProps,
-  flexWrap,
-  FlexWrapProps,
-  justifyContent,
-  JustifyContentProps,
-  justifySelf,
-  JustifySelfProps,
-  order,
-  OrderProps
-} from "styled-system";
+import styled, { StyledComponent } from "styled-components";
 
-type PropsFlex = FlexWrapProps &
-  AlignItemsProps &
-  JustifyContentProps &
-  FlexDirectionProps;
+import common, { CommonProps } from "./types/common";
+import { flexContainer, FlexContainerProps } from "./types/flex";
 
-type PropsFlexItem = FlexProps & OrderProps & JustifySelfProps;
+type Props = CommonProps & FlexContainerProps;
 
-const Flex = styled("div")<PropsFlex>`
-  display: flex;
-  width: 100%;
-  height: 100%;
-  ${flexWrap}
-  ${flexDirection}
-  ${alignItems}
-  ${justifyContent}
-`;
+const Flex: StyledComponent<Props> = styled("div")(
+  {
+    display: "flex"
+  },
 
-const FlexItem = styled("div")<PropsFlexItem>`
-  ${flex}
-  ${order}
-  ${justifySelf}
-`;
-
-export { FlexItem };
+  common,
+  flexContainer
+);
 
 export default Flex;

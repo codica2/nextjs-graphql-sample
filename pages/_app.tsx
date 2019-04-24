@@ -1,24 +1,12 @@
 import App, { Container } from "next/app";
 import React from "react";
 import { ApolloProvider } from "react-apollo";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 
 import withApollo from "../lib/withApollo";
 
 import theme from "@views/theme";
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    font-family: Roboto;
-    line-height: 1;
-  }
-
-  #__next {
-    display: flex;
-    height: 100%;
-  }
-
-`;
+import GlobalStyles from "@views/globalStyles";
 
 class MyApp extends App<any> {
   public render() {
@@ -30,8 +18,9 @@ class MyApp extends App<any> {
           <ThemeProvider theme={theme}>
             <Component {...pageProps} />
           </ThemeProvider>
-          <GlobalStyle />
         </ApolloProvider>
+
+        <GlobalStyles />
       </Container>
     );
   }
