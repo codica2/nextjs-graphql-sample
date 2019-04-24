@@ -4,7 +4,7 @@ import Router from "next/router";
 import React from "react";
 
 import Layout from "@views/layouts/Intro";
-import InputField from "@views/ui/inputs/InputField";
+import InputField from "@views/ui/InputField";
 import { Heading } from "@views/styled";
 
 import { ForgotPasswordComponent } from "@generated/apolloComponents";

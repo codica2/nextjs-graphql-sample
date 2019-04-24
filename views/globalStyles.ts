@@ -1,9 +1,14 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
+  html, body {
+    height: 100%;
+  }
+
   body {
     font-family: Roboto;
     line-height: 1;
+    margin: 0;
   }
 
   #__next {

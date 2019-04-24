@@ -5,7 +5,7 @@ import React from "react";
 import { Heading } from "rebass";
 
 import Layout from "@views/layouts/Intro";
-import InputField from "@views/ui/inputs/InputField";
+import InputField from "@views/ui/InputField";
 
 import { RegisterComponent } from "@generated/apolloComponents";
 

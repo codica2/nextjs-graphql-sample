@@ -6,7 +6,7 @@ import { Heading } from "rebass";
 
 import Layout from "@views/layouts/Intro";
 import Button from "@views/ui/Button";
-import InputField from "@views/ui/inputs/InputField";
+import InputField from "@views/ui/InputField";
 
 import { LoginComponent, MeQuery } from "@generated/apolloComponents";
 
