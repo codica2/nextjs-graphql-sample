@@ -1,4 +1,9 @@
-import Document, { NextDocumentContext } from "next/document";
+import Document, {
+  NextDocumentContext,
+  Head,
+  Main,
+  NextScript
+} from "next/document";
 import React from "react";
 import { ServerStyleSheet } from "styled-components";
 
@@ -30,6 +35,35 @@ class MyDocument extends Document {
     } finally {
       sheet.seal();
     }
+  }
+
+  public render() {
+    return (
+      <html lang="en">
+        <Head>
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900"
+          />
+
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          />
+        </Head>
+
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </html>
+    );
   }
 }
 

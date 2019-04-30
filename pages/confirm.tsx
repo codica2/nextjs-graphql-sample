@@ -1,7 +1,7 @@
-import * as React from "react";
+import React from "react";
 
 import { NextContextWithApollo } from "../interfaces/NextContextWithApollo";
-import redirect from "../lib/redirect";
+import redirect from "@utils/redirect";
 
 import { confirmEmailMutation } from "@graphql/user/mutations/confirmEmail";
 

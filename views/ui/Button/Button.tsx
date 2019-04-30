@@ -1,7 +1,22 @@
-import Button from "antd/lib/button";
+import React from "react";
+import PropTypes from "prop-types";
 
-const ButtonComp = (props: any) => {
-  return <Button {...props} />;
+import StyledButton from "./StyledButton";
+
+interface IProps {
+  loading: boolean;
+  children: string;
+}
+
+const Button: IProps = ({ loading, children, ...props }) => (
+  <StyledButton {...props}>
+    {children}
+    {loading && <i className="fa fa-spinner fa-spin" />}
+  </StyledButton>
+);
+
+Button.defaultProps = {
+  loading: false
 };
 
-export default ButtonComp;
+export default Button;

@@ -23,10 +23,11 @@ const nav = [
 
 interface IProps {
   title?: string;
+  children: React.ReactNode;
 }
 
-const IntroLayout: React.FC<IProps> = ({ children, title }) => (
-  <Grid width="100%" gridTemplateRows="auto 1fr auto">
+const IntroLayout: React.FC<IProps> = ({ title, children }) => (
+  <Grid width="100%" gridTemplateRows="auto 1fr auto" bg="bg">
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
@@ -37,7 +38,13 @@ const IntroLayout: React.FC<IProps> = ({ children, title }) => (
 
     <Container as="main" p={3}>
       <Flex height="100%" justifyContent="center" alignItems="center">
-        <Box p={3} boxShadow="violet" width="500px">
+        <Box
+          p={3}
+          boxShadow="main"
+          width="500px"
+          border="2"
+          borderColor="primary"
+        >
           {children}
         </Box>
       </Flex>
@@ -48,7 +55,7 @@ const IntroLayout: React.FC<IProps> = ({ children, title }) => (
 );
 
 IntroLayout.defaultProps = {
-  title: "This is the default title"
+  title: "Nextjs GraphQL Sample"
 };
 
 export default IntroLayout;

@@ -16,7 +16,8 @@ const Heading: StyledComponent<Props> = styled("h1")(
 
 Heading.defaultProps = {
   fontSize: [2, 3, 4],
-  fontWeight: 5
+  fontWeight: 5,
+  color: "primary"
 };
 
 Heading.displayName = "Heading";

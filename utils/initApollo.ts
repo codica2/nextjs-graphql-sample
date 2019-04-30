@@ -19,11 +19,11 @@ if (!isBrowser) {
   (global as any).fetch = fetch;
 }
 
-interface Options {
+interface IOptions {
   getToken: () => string;
 }
 
-function create(initialState: any, { getToken }: Options) {
+function create(initialState: any, { getToken }: IOptions) {
   const httpLink = createHttpLink({
     uri: "http://localhost:4000/graphql",
     credentials: "include"
@@ -53,7 +53,9 @@ function create(initialState: any, { getToken }: Options) {
       });
     }
 
-    if (networkError) { console.log(`[Network error]: ${networkError}`); }
+    if (networkError) {
+      console.log(`[Network error]: ${networkError}`);
+    }
   });
 
   // Check out https://github.com/zeit/next.js/pull/4611 if you want to use the AWSAppSyncClient
@@ -66,7 +68,7 @@ function create(initialState: any, { getToken }: Options) {
   });
 }
 
-export default function initApollo(initialState: any, options: Options) {
+export default function initApollo(initialState: any, options: IOptions) {
   // Make sure to create a new client for every server-side request so that data
   // isn't shared between connections (which would be bad)
   if (!isBrowser) {

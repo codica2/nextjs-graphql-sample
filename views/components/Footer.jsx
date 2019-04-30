@@ -1,12 +1,11 @@
 import React from "react";
 import Link from "next/link";
 
-import { Container } from "@views/styled";
+import { Container, Paragraph } from "@views/styled";
 
 const Footer = () => (
   <Container as="footer" p="20px 50px">
-    <hr />
-    <span>Im here to stay (Footer)</span>
+    <Paragraph textAlign="center">Im here to stay (Footer)</Paragraph>
   </Container>
 );
 

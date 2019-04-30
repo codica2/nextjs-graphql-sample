@@ -1,6 +1,6 @@
 import { Theme } from "styled-system";
 
-interface StyledTheme extends Theme {
+interface IStyledTheme extends Theme {
   width: number[];
   colors: { [key: string]: any };
   breakpoints: { [key: string]: any };
@@ -9,7 +9,7 @@ interface StyledTheme extends Theme {
   buttonColors?: { [key: string]: any };
 }
 
-const theme: StyledTheme = {
+const theme: IStyledTheme = {
   breakpoints: ["40em", "52em", "64em", "80em"],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fontSizes: [12, 14, 16, 20, 24, 36, 48, 80, 96],
@@ -44,7 +44,11 @@ const theme: StyledTheme = {
   heights: [16, 32, 64, 128, 256],
   maxWidths: [16, 32, 64, 128, 256, 512, 768, 1024, 1536],
   colors: {
+    bg: "#1F2833",
+    secondary: "#45A29E",
+    primary: "#66FCF1",
     black: "#000",
+    font: "#C5C6C7",
     "near-black": "#111",
     "dark-gray": "#333",
     "mid-gray": "#555",
@@ -54,6 +58,7 @@ const theme: StyledTheme = {
     "moon-gray": "#ccc",
     "light-gray": "#eee",
     "near-white": "#f4f4f4",
+    error: "#EE4C7C",
     white: "#fff",
     transparent: "transparent",
     blacks: [
@@ -87,7 +92,7 @@ const theme: StyledTheme = {
     // ... and so on
   },
   shadows: {
-    violet: `0px 8px 19px rgba(157, 142, 230, 0.335626)`
+    main: `0px 8px 19px rgba(69, 162, 158, 0.335626)`
   },
   buttonSizes: {
     xs: `

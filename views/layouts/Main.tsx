@@ -19,10 +19,11 @@ const nav = [
 
 interface IProps {
   title?: string;
+  children: React.ReactNode;
 }
 
 const MainLayout: React.FC<IProps> = ({ title, children }) => (
-  <Grid width="100%" gridTemplateRows="auto 1fr auto">
+  <Grid width="100%" gridTemplateRows="auto 1fr auto" bg="bg">
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
@@ -40,7 +41,7 @@ const MainLayout: React.FC<IProps> = ({ title, children }) => (
 );
 
 MainLayout.defaultProps = {
-  title: "This is the default title"
+  title: "Nextjs GraphQL Sample"
 };
 
 export default MainLayout;

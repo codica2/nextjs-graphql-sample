@@ -12,7 +12,8 @@
         "alias": {
           "@generated": "./generated",
           "@graphql": "./graphql",
-          "@views": "./views"
+          "@views": "./views",
+          "@utils": "./utils"
         }
       }
     ]

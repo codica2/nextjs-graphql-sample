@@ -1,16 +1,16 @@
 import React from "react";
 import Router from "next/router";
-import { Row } from "antd";
 import { Field, Formik, FormikProps } from "formik";
-import { Heading } from "rebass";
 
 import Layout from "@views/layouts/Intro";
 import Button from "@views/ui/Button";
 import InputField from "@views/ui/InputField";
+import { Heading, Flex } from "@views/styled";
 
 import { LoginComponent, MeQuery } from "@generated/apolloComponents";
 
 import { meQuery } from "@graphql/user/queries/me";
+import { loginSchema } from "@utils/validationSchemas";
 
 interface ILoginFormValues {
   email: string;
@@ -19,9 +19,7 @@ interface ILoginFormValues {
 
 const Register: React.FC = () => (
   <Layout title="Login page">
-    <Heading textAlign="center" fontWeight="bold" pb={20}>
-      Log in
-    </Heading>
+    <Heading textAlign="center">Log in</Heading>
 
     <LoginComponent>
       {(login, { loading }) => (
@@ -30,6 +28,7 @@ const Register: React.FC = () => (
             email: "",
             password: ""
           }}
+          validationSchema={loginSchema}
           onSubmit={async (values: ILoginFormValues, { setErrors }) => {
             const response = await login({
               variables: values,
@@ -58,30 +57,24 @@ const Register: React.FC = () => (
             Router.push("/");
           }}
         >
-          {({ handleSubmit }: FormikProps<ILoginFormValues>) => {
-            return (
-              <form onSubmit={handleSubmit}>
-                <Field
-                  name="email"
-                  placeholder="Email"
-                  component={InputField}
-                />
+          {({ handleSubmit }: FormikProps<ILoginFormValues>) => (
+            <form onSubmit={handleSubmit}>
+              <Field name="email" placeholder="Email" component={InputField} />
 
-                <Field
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  component={InputField}
-                />
+              <Field
+                type="password"
+                name="password"
+                placeholder="Password"
+                component={InputField}
+              />
 
-                <Row type="flex" justify="end">
-                  <Button htmlType="submit" loading={loading}>
-                    Submit
-                  </Button>
-                </Row>
-              </form>
-            );
-          }}
+              <Flex justifyContent="flex-end">
+                <Button type="submit" loading={loading}>
+                  Submit
+                </Button>
+              </Flex>
+            </form>
+          )}
         </Formik>
       )}
     </LoginComponent>

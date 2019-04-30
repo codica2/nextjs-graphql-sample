@@ -1,18 +1,15 @@
 import React from "react";
 
-import Typography from "antd/lib/typography";
 import Layout from "@views/layouts/Main";
-import Title from "@views/styled/Title";
+import { Heading, Paragraph } from "@views/styled";
 
-import { withAuth } from "../lib/withAuth";
+import { withAuth } from "@utils/withAuth";
 
 const IndexPage: React.FC = () => (
   <Layout title="Home | Next.js + TypeScript Example">
-    <Title>Home</Title>
+    <Heading>Home</Heading>
 
-    <Typography.Paragraph strong={true}>
-      This is the home page
-    </Typography.Paragraph>
+    <Paragraph>This is the home page</Paragraph>
   </Layout>
 );
 

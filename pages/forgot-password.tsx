@@ -1,13 +1,14 @@
-import { Button, Row } from "antd";
-import { Field, Formik, FormikProps } from "formik";
-import Router from "next/router";
 import React from "react";
+import Router from "next/router";
+import { Field, Formik, FormikProps } from "formik";
 
 import Layout from "@views/layouts/Intro";
 import InputField from "@views/ui/InputField";
-import { Heading } from "@views/styled";
+import Button from "@views/ui/Button";
+import { Heading, Flex } from "@views/styled";
 
 import { ForgotPasswordComponent } from "@generated/apolloComponents";
+import { forgotPasswordSchema } from "@utils/validationSchemas";
 
 interface IRegisterFormValues {
   email: string;
@@ -23,6 +24,7 @@ const ForgotPassword: React.FC = () => (
           initialValues={{
             email: ""
           }}
+          validationSchema={forgotPasswordSchema}
           onSubmit={async (data: IRegisterFormValues) => {
             await forgotPassword({
               variables: data
@@ -31,23 +33,17 @@ const ForgotPassword: React.FC = () => (
             Router.push("/confirm-email");
           }}
         >
-          {({ handleSubmit }: FormikProps<IRegisterFormValues>) => {
-            return (
-              <form onSubmit={handleSubmit}>
-                <Field
-                  name="email"
-                  placeholder="Email"
-                  component={InputField}
-                />
+          {({ handleSubmit }: FormikProps<IRegisterFormValues>) => (
+            <form onSubmit={handleSubmit}>
+              <Field name="email" placeholder="Email" component={InputField} />
 
-                <Row type="flex" justify="end">
-                  <Button htmlType="submit" loading={loading}>
-                    Forgot password
-                  </Button>
-                </Row>
-              </form>
-            );
-          }}
+              <Flex justifyContent="flex-end">
+                <Button type="submit" loading={loading}>
+                  Forgot password
+                </Button>
+              </Flex>
+            </form>
+          )}
         </Formik>
       )}
     </ForgotPasswordComponent>

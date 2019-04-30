@@ -1,6 +1,6 @@
 import { logoutMutation } from "@graphql/user/mutations/logout";
 import { NextContextWithApollo } from "../interfaces/NextContextWithApollo";
-import redirect from "../lib/redirect";
+import redirect from "@utils/redirect";
 
 const Logout = () => {
   return null;

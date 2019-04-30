@@ -22,7 +22,8 @@
     "paths": {
       "@generated/*": ["../generated/*"],
       "@graphql/*": ["../graphql/*"],
-      "@views/*": ["./*"]
+      "@views/*": ["./*"],
+      "@utils/*": ["../utils/*"]
     }
   }
 }

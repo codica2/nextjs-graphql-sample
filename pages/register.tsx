@@ -1,13 +1,14 @@
-import { Button, Row } from "antd";
-import { Field, Formik, FormikProps } from "formik";
-import Router from "next/router";
 import React from "react";
-import { Heading } from "rebass";
+import Router from "next/router";
+import { Field, Formik, FormikProps } from "formik";
 
 import Layout from "@views/layouts/Intro";
 import InputField from "@views/ui/InputField";
+import Button from "@views/ui/Button";
+import { Heading, Flex } from "@views/styled";
 
 import { RegisterComponent } from "@generated/apolloComponents";
+import { registerSchema } from "@utils/validationSchemas";
 
 interface IRegisterFormValues {
   password: string;
@@ -18,19 +19,18 @@ interface IRegisterFormValues {
 
 const Register: React.FC = () => (
   <Layout title="Register page">
-    <Heading textAlign="center" fontWeight="bold" pb={20}>
-      Register
-    </Heading>
+    <Heading textAlign="center">Register</Heading>
 
     <RegisterComponent>
       {(register, { loading }) => (
         <Formik
           initialValues={{
-            password: "",
             firstName: "",
             lastName: "",
+            password: "",
             email: ""
           }}
+          validationSchema={registerSchema}
           onSubmit={async (data: IRegisterFormValues, { setErrors }) => {
             try {
               await register({
@@ -41,7 +41,10 @@ const Register: React.FC = () => (
 
               Router.push("/confirm-email");
             } catch (error) {
-              const errors = error.graphQLErrors[0].validationErrors;
+              const errors =
+                (error.graphQLErrors[0] &&
+                  error.graphQLErrors[0].validationErrors) ||
+                [];
 
               const validationErrors = errors.reduce(
                 (obj: any, err: { property: string; constraints: string }) => {
@@ -56,42 +59,36 @@ const Register: React.FC = () => (
             }
           }}
         >
-          {({ handleSubmit }: FormikProps<IRegisterFormValues>) => {
-            return (
-              <form onSubmit={handleSubmit}>
-                <Field
-                  name="firstName"
-                  placeholder="First name"
-                  component={InputField}
-                />
+          {({ handleSubmit }: FormikProps<IRegisterFormValues>) => (
+            <form onSubmit={handleSubmit}>
+              <Field
+                name="firstName"
+                placeholder="First name"
+                component={InputField}
+              />
 
-                <Field
-                  name="lastName"
-                  placeholder="Last name"
-                  component={InputField}
-                />
+              <Field
+                name="lastName"
+                placeholder="Last name"
+                component={InputField}
+              />
 
-                <Field
-                  name="email"
-                  placeholder="Email"
-                  component={InputField}
-                />
+              <Field name="email" placeholder="Email" component={InputField} />
 
-                <Field
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  component={InputField}
-                />
+              <Field
+                type="password"
+                name="password"
+                placeholder="Password"
+                component={InputField}
+              />
 
-                <Row type="flex" justify="end">
-                  <Button htmlType="submit" loading={loading}>
-                    Submit
-                  </Button>
-                </Row>
-              </form>
-            );
-          }}
+              <Flex justifyContent="flex-end">
+                <Button type="submit" loading={loading}>
+                  Submit
+                </Button>
+              </Flex>
+            </form>
+          )}
         </Formik>
       )}
     </RegisterComponent>

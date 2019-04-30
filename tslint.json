@@ -12,7 +12,6 @@
       "node_modules/**/*.ts",
       "generated/**/*.tsx",
       "interfaces/**/*.ts",
-      "lib/**/*.{ts,tsx}",
       "dist/**/*.ts"
     ]
   }

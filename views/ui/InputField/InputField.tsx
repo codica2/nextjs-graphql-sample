@@ -22,7 +22,7 @@ const InputField = ({
     <StyledInput>
       <input {...field} {...props} className={className} />
 
-      <span className="focus-bg" />
+      <span className="focus-border" />
 
       {errorMessage && <div className="error-message">{errorMessage}</div>}
     </StyledInput>
