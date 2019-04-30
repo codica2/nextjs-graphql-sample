@@ -869,6 +869,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.10.4.tgz#3f5fc4f0f322805f009e00ab35a2ff3d6b778e42"
   integrity sha512-wa09itaLE8L705aXd8F80jnFpxz3Y1/KRHfKsYL2bPc0XF+wEWu8sR9n5bmeu8Ba1N9z2GRNzm/YdHcghLkLKg==
 
+"@types/nprogress@^0.0.29":
+  version "0.0.29"
+  resolved "https://registry.yarnpkg.com/@types/nprogress/-/nprogress-0.0.29.tgz#060bd510022a005f1840234030d3132fb9195471"
+  integrity sha1-BgvVEAIqAF8YQCNAMNMTL7kZVHE=
+
 "@types/prettier@1.15.2":
   version "1.15.2"
   resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-1.15.2.tgz#91594ea7cb6f3b1f7ea69f32621246654c7cc231"
@@ -5648,6 +5653,11 @@ npm-which@^3.0.1:
     console-control-strings "~1.1.0"
     gauge "~2.7.3"
     set-blocking "~2.0.0"
+
+nprogress@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/nprogress/-/nprogress-0.2.0.tgz#cb8f34c53213d895723fcbab907e9422adbcafb1"
+  integrity sha1-y480xTIT2JVyP8urkH6UIq28r7E=
 
 number-is-nan@^1.0.0:
   version "1.0.1"

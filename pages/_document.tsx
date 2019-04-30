@@ -48,6 +48,26 @@ class MyDocument extends Document {
           />
 
           <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/static/apple-touch-icon.png"
+          />
+
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/static/favicon-32x32.png"
+          />
+
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/static/favicon-16x16.png"
+          />
+
+          <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900"
           />
@@ -55,6 +75,12 @@ class MyDocument extends Document {
           <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          />
+
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="/static/css/nprogress.css"
           />
         </Head>
 
