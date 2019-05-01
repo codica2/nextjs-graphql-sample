@@ -8,7 +8,7 @@ import { confirmEmailMutation } from "@graphql/user/mutations/confirmEmail";
 import {
   ConfirmEmailMutation,
   ConfirmEmailVariables
-} from "../generated/apolloComponents";
+} from "@generated/apolloComponents";
 
 class Confirm extends React.Component {
   public static async getInitialProps({

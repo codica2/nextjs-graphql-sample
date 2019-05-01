@@ -18,7 +18,7 @@ interface ILoginFormValues {
 }
 
 const Register: React.FC = () => (
-  <Layout title="Login page">
+  <Layout title="Login">
     <Heading textAlign="center">Log in</Heading>
 
     <LoginComponent>

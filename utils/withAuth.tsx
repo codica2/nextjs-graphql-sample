@@ -1,10 +1,11 @@
-import * as React from "react";
+import React from "react";
 
-import { MeQuery } from "generated/apolloComponents";
+import { MeQuery } from "@generated/apolloComponents";
+import redirect from "@utils/redirect";
+
 import { NextContextWithApollo } from "../interfaces/NextContextWithApollo";
-import redirect from "./redirect";
 
-import { meQuery } from "../graphql/user/queries/me";
+import { meQuery } from "@graphql/user/queries/me";
 
 export const withAuth = <T extends object>(
   C: React.ComponentClass<T> | React.FC
@@ -14,17 +15,24 @@ export const withAuth = <T extends object>(
       apolloClient,
       ...ctx
     }: NextContextWithApollo) {
-      const response = await apolloClient.query<MeQuery>({ query: meQuery });
-      if (!response || !response.data || !response.data.me) {
-        redirect(ctx, "/login");
+      try {
+        const response = await apolloClient.query<MeQuery>({ query: meQuery });
+
+        if (!response || !response.data || !response.data.me) {
+          redirect(ctx, "/login");
+        }
 
         return {
-          me: null
+          me: response.data.me
         };
+      } catch (error) {
+        console.error(error);
+
+        redirect(ctx, "/login");
       }
 
       return {
-        me: response.data.me
+        me: null
       };
     }
 

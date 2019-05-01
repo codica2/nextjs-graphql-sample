@@ -5,7 +5,7 @@ import { Paragraph } from "@views/styled";
 
 export default () => {
   return (
-    <Layout title="Check Email">
+    <Layout title="Checking email">
       <Paragraph>Check your email to confirm your account</Paragraph>
     </Layout>
   );

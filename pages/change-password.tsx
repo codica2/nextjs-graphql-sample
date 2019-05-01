@@ -15,7 +15,7 @@ interface IRegisterFormValues {
 }
 
 const ChangePassword = ({ token }: { token: string }) => (
-  <Layout title="Chnage password page">
+  <Layout title="Chnage password">
     <ChangePasswordComponent>
       {(forgotPassword, { loading }) => (
         <Formik

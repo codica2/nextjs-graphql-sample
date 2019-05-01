@@ -15,7 +15,7 @@ interface IRegisterFormValues {
 }
 
 const ForgotPassword: React.FC = () => (
-  <Layout title="Forgot password page">
+  <Layout title="Forgot password">
     <Heading textAlign="center">Forgot Password</Heading>
 
     <ForgotPasswordComponent>

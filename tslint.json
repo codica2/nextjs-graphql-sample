@@ -5,7 +5,6 @@
     "object-literal-sort-keys": false,
     "ordered-imports": false,
     "no-console": false
-    // "no-console": [true, "log", "error"]
   },
   "linterOptions": {
     "exclude": [

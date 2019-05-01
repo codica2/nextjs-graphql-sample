@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { Container, Flex, Box, NavLink } from "@views/styled";
+import { Container, Flex, NavLink } from "@views/styled";
 
 import { MeComponent } from "@generated/apolloComponents";
 
@@ -10,15 +10,13 @@ interface IProps {
 }
 
 const Header: React.FC<IProps> = ({ items }) => (
-  <Container height="50px" p="0 50px">
-    <Flex justifyContent="space-between">
-      <Box as="nav" lineHeight="50px">
-        {items.map(({ label, link }) => (
-          <Link key={label} href={link} passHref={true}>
-            <NavLink>{label}</NavLink>
-          </Link>
-        ))}
-      </Box>
+  <Container p="0 50px">
+    <Flex as="nav" height="50px" alignItems="center">
+      {items.map(({ label, link }) => (
+        <Link key={label} href={link} passHref={true}>
+          <NavLink>{label}</NavLink>
+        </Link>
+      ))}
 
       <MeComponent>
         {({ data, loading }) => {
@@ -28,7 +26,7 @@ const Header: React.FC<IProps> = ({ items }) => (
 
           return (
             <Link href="/logout">
-              <a>Logout</a>
+              <NavLink css={{ marginLeft: "auto" }}>Logout</NavLink>
             </Link>
           );
         }}

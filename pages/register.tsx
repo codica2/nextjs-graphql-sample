@@ -18,7 +18,7 @@ interface IRegisterFormValues {
 }
 
 const Register: React.FC = () => (
-  <Layout title="Register page">
+  <Layout title="Register">
     <Heading textAlign="center">Register</Heading>
 
     <RegisterComponent>

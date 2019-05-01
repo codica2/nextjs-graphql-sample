@@ -4,8 +4,10 @@ import Link from "next/link";
 import Layout from "@views/layouts/Main";
 import { Heading, Paragraph, NavLink } from "@views/styled";
 
+import { withAuth } from "@utils/withAuth";
+
 const AboutPage: React.FunctionComponent = () => (
-  <Layout title="About | Next.js + TypeScript Example">
+  <Layout title="About">
     <Heading>About</Heading>
 
     <Paragraph>This is the about page</Paragraph>
@@ -16,4 +18,4 @@ const AboutPage: React.FunctionComponent = () => (
   </Layout>
 );
 
-export default AboutPage;
+export default withAuth(AboutPage);
