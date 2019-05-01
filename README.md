@@ -15,7 +15,7 @@
 
 This is an `example/boilerplate` of a [nextjs](https://github.com/zeit/next.js) project using [Typescript](https://github.com/Microsoft/TypeScript) and [Apollo](https://www.apollographql.com/docs/react/).
 
-The main idea behind the example is to show the best typescript and GraphQL usage by the integration of the Apollo client and providing typescript types generating using [GraphQL Code Generator](https://github.com/dotansimha/graphql-code-generator).
+The main idea behind the example is to show the best typescript and GraphQL usage by integration of the Apollo client and types generating using [GraphQL Code Generator](https://github.com/dotansimha/graphql-code-generator).
 
 Moreover, for writing styles it suggests no less interesting approach with combining styled-components and styled-system [Read more](#styling). :smiley:
 
