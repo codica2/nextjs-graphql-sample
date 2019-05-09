@@ -1,5 +1,5 @@
 {
-  "name": "with-typescript",
+  "name": "nextjs-graphql-sample",
   "version": "1.0.0",
   "scripts": {
     "dev": "ts-node --project tsconfig.server.json server/index.ts",
